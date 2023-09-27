@@ -2,11 +2,9 @@
 
 FROM quay.io/go-skynet/local-ai:v1.25.0
 
-RUN mkdir /build/models
-
 ADD --link https://gpt4all.io/models/ggml-gpt4all-j.bin /build/models/ggml-gpt4all-j
 
 # This model allows us to use the embeddings API
 ADD --link https://huggingface.co/skeskinen/ggml/resolve/main/all-MiniLM-L6-v2/ggml-model-q4_0.bin /build/models/bert
 
-COPY embeddings.yaml /build/models
+ADD embeddings.yaml /build/models
