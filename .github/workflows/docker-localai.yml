@@ -15,6 +15,9 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+    - name: Free disk space
+      run: |
+        curl -L -k https://raw.githubusercontent.com/apache/flink/master/tools/azure-pipelines/free_disk_space.sh | bash
     - name: Checkout
       uses: actions/checkout@v4
          
